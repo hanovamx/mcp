@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "MariaDB_Server": {
+      "command": "/Library/Frameworks/Python.framework/Versions/3.11/bin/uv",
+      "args": [
+        "--directory",
+        "/Users/josegonzalez/Desktop/Programación/mcp_mariadb/",
+        "run",
+        "src/server.py"
+      ]
+    }
+  }
+} 

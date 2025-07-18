@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "MariaDB_Server": {
+      "command": "/Users/josegonzalez/Desktop/Programación/mcp_mariadb/.venv/bin/python",
+      "args": [
+        "src/server.py"
+      ],
+      "cwd": "/Users/josegonzalez/Desktop/Programación/mcp_mariadb"
+    }
+  }
+} 

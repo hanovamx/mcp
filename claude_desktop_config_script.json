@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "MariaDB_Server": {
+      "command": "/Users/josegonzalez/Desktop/Programación/mcp_mariadb/start_mcp_server.sh"
+    }
+  }
+} 

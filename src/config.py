@@ -47,10 +47,11 @@ logger = logging.getLogger(__name__)
 
 # --- Database Configuration ---
 DB_HOST = os.getenv("DB_HOST", "localhost")
-DB_PORT = int(os.getenv("DB_PORT", 3306))
+DB_PORT = int(os.getenv("DB_PORT", 3306)) if os.getenv("DB_PORT") else 3306
 DB_USER = os.getenv("DB_USER")
 DB_PASSWORD = os.getenv("DB_PASSWORD")
 DB_NAME = os.getenv("DB_NAME")
+DB_SOCKET = os.getenv("DB_SOCKET")
 
 # --- MCP Server Configuration ---
 # Read-only mode
@@ -69,8 +70,12 @@ HF_MODEL = os.getenv("HF_MODEL")
 
 
 # --- Validation ---
-if not all([DB_USER, DB_PASSWORD]):
-    logger.error("Database credentials (DB_USER, DB_PASSWORD) not found in environment variables or .env file.")
+if not DB_USER:
+    logger.error("Database credential DB_USER not found in environment variables or .env file.")
+elif DB_SOCKET:
+    logger.info(f"Using Unix socket connection: {DB_SOCKET}")
+elif not DB_PASSWORD:
+    logger.error("Database credential DB_PASSWORD not found in environment variables or .env file (required for host connections).")
 
 # Embedding Provider and Keys
 logger.info(f"Selected Embedding Provider: {EMBEDDING_PROVIDER}")
